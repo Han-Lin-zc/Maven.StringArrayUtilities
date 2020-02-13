@@ -63,8 +63,11 @@ public class StringArrayUtils {
      * @return an array with identical contents in reverse order
      */ // TODO
     public static String[] reverse(String[] array) {
-        Collections.reverse(Arrays.asList(array));
-        return array;
+        String[] newArr = new String[array.length];
+        for (int i = array.length - 1; i >= 0; i--) {
+            newArr[array.length - 1 - i] = array[i];
+        }
+        return newArr;
     }
 
     /**
@@ -129,6 +132,14 @@ public class StringArrayUtils {
      * @return array of Strings with consecutive duplicates removes
      */ // TODO
     public static String[] removeConsecutiveDuplicates(String[] array) {
+//        String[] newArr = new String[];
+//        int index = 0;
+//        for (int i = 0; i < array.length; i++) {
+//            if (array[i].equals(array[i + 1])) {
+//
+//
+//            }
+//        }
         return null;
     }
 
