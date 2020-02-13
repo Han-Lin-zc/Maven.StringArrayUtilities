@@ -1,6 +1,9 @@
 package com.zipcodewilmington;
 
-import java.lang.reflect.Array;
+import com.sun.codemodel.internal.JArray;
+import com.sun.tools.internal.xjc.model.CArrayInfo;
+
+import java.sql.Array;
 import java.util.Arrays;
 import java.util.Collections;
 
@@ -69,6 +72,15 @@ public class StringArrayUtils {
      * @return true if the order of the array is the same backwards and forwards
      */ // TODO
     public static boolean isPalindromic(String[] array) {
+        int index = 0;
+        for (int i = array.length - 1; i > 0; i--) {
+            if (!array[i].equals(array)) {
+                index++;
+            }
+            if (index % 2 == 0) {
+                return true;
+            }
+        }
         return false;
     }
 
@@ -101,7 +113,15 @@ public class StringArrayUtils {
      * @return array with identical contents excluding values of `value`
      */ // TODO
     public static String[] removeValue(String[] array, String valueToRemove) {
-        return null;
+        String[] newArr = new String[array.length - 1];
+        int index = 0;
+        for (String s : array) {
+            if (!s.equals(valueToRemove)) {
+                newArr[index] = s;
+                index++;
+            }
+        }
+        return newArr;
     }
 
     /**
