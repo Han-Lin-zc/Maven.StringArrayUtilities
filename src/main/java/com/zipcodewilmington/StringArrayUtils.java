@@ -134,15 +134,16 @@ public class StringArrayUtils {
      */ // TODO
     public static String[] removeConsecutiveDuplicates(String[] array) {
         int counter = 0;
-        String[] newArr = Arrays.copyOf(array, 10);
+        String[] newArr = new String[array.length];
 
-        for (int i = 0; i < array.length - 1; i++) {
-            if (!array[i].equals(array[i+1])) {
+        for (int i = 0; i < array.length; i++) {
+            if (!array[i].equals(array[i + 1])) {
                 newArr[counter] = array[i];
+                counter++;
             }
-        }
 
-        System.out.println(Arrays.toString(newArr));
+        }
+        newArr[newArr.length] = null;
         return newArr;
     }
 
