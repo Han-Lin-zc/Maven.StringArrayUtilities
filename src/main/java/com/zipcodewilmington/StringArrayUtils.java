@@ -93,6 +93,25 @@ public class StringArrayUtils {
      * @return true if each letter in the alphabet has been used in the array
      */ // TODO
     public static boolean isPangramic(String[] array) {
+        String newStr = "";
+        String alphabet =  "abcdefghijklmnopqrstuvwxyz";
+
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length(); j++) {
+                if (array[i].charAt(j) != ' ') {
+                    newStr += Character.toLowerCase(array[i].charAt(j));
+                }
+            }
+        }
+        char[] sorting = newStr.toCharArray();
+        Arrays.sort(sorting);
+
+        for (int i = 0; i < sorting.length; i++) {
+//            if (sorting[i] == ) {
+//
+//            }
+        }
+
         return false;
     }
 
@@ -134,16 +153,22 @@ public class StringArrayUtils {
      */ // TODO
     public static String[] removeConsecutiveDuplicates(String[] array) {
         int counter = 0;
-        String[] newArr = new String[array.length];
 
-        for (int i = 0; i < array.length; i++) {
+        for (int i = 0; i < array.length - 1; i++) {
             if (!array[i].equals(array[i + 1])) {
-                newArr[counter] = array[i];
                 counter++;
             }
-
         }
-        newArr[newArr.length] = null;
+        String[] newArr = new String[counter + 1];
+        counter = 0;
+        for (int i = 0; i < array.length-1; i++) {
+            if (!array[i].equals(array[i + 1])){
+                newArr[counter] = array[i];
+                counter++;
+            } else if (array[i].equals(array[array.length - 1])) {
+                newArr[counter] = array[i];
+            }
+        }
         return newArr;
     }
 
@@ -152,6 +177,8 @@ public class StringArrayUtils {
      * @return array of Strings with each consecutive duplicate occurrence concatenated as a single string in an array of Strings
      */ // TODO
     public static String[] packConsecutiveDuplicates(String[] array) {
+
+
         return null;
     }
 
