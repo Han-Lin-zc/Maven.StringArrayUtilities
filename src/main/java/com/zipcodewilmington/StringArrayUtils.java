@@ -169,6 +169,7 @@ public class StringArrayUtils {
                 newArr[counter] = array[i];
             }
         }
+        newArr[newArr.length - 1] = array[array.length - 1];
         return newArr;
     }
 
