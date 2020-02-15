@@ -109,7 +109,7 @@ public class StringArrayUtils {
         for (int i = 0; i < sorting.length; i++) {
 //            if (sorting[i] == ) {
 //
-//            }
+//
         }
 
         return false;
@@ -179,9 +179,40 @@ public class StringArrayUtils {
      */ // TODO
     public static String[] packConsecutiveDuplicates(String[] array) {
 
+        int counter = 0;
+        for (int i = 0; i < array.length - 1; i++) {
+            if (!array[i].equals(array[i + 1])) {
+                counter++;
+            }
+        }
+
+        String[] newArr = new String[counter];
+        counter = 0;
+        for (int i = 0; i < array.length - 1; i++) {
+            if (array[i].equals(array[i + 1])) {
+                newArr[counter] += array[i];
+
+            }
+        }
+
+
+
 
         return null;
     }
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
