@@ -103,16 +103,17 @@ public class StringArrayUtils {
                 }
             }
         }
-        char[] sorting = newStr.toCharArray();
-        Arrays.sort(sorting);
 
-        for (int i = 0; i < sorting.length; i++) {
-//            if (sorting[i] == ) {
-//
-//
+        int counter = 0;
+        for (int i = 0; i < alphabet.length(); i++) {
+            for (int j = 0; j < newStr.length(); j++) {
+                if (alphabet.charAt(i) == newStr.charAt(j)) {
+                    counter++;
+                    break;
+                }
+            }
         }
-
-        return false;
+        return counter == 26;
     }
 
     /**
@@ -161,7 +162,9 @@ public class StringArrayUtils {
         }
         String[] newArr = new String[counter + 1];
         counter = 0;
+
         for (int i = 0; i < array.length-1; i++) {
+
             if (!array[i].equals(array[i + 1])){
                 newArr[counter] = array[i];
                 counter++;
@@ -186,30 +189,27 @@ public class StringArrayUtils {
             }
         }
 
-        String[] newArr = new String[counter];
-        counter = 0;
+        String[] newArr = new String[counter+1];
+        String test = "";
+        int y = 0;
         for (int i = 0; i < array.length - 1; i++) {
-            if (array[i].equals(array[i + 1])) {
-                newArr[counter] += array[i];
 
+            if (array[i].equals(array[i + 1])) {
+                test += array[i];
+
+            } else if (!array[i].equals(array[i + 1])) {
+                test += array[i];
+                newArr[y] = test;
+                y++;
+                test = "";
             }
         }
-
-
-
-
-        return null;
+        newArr[y] = test + array[array.length - 1];
+        return newArr;
     }
 
 
 }
-
-
-
-
-
-
-
 
 
 
